@@ -13,6 +13,8 @@
             --primary-light: #4cc9f0;
             --secondary-color: #7209b7;
             --accent-color: #f72585;
+            --highlight-color: #FFD700;
+            --highlight-dark: #FFC400;
             --success-color: #4bb543;
             --warning-color: #ff9f1c;
             --error-color: #e63946;
@@ -158,6 +160,17 @@
             box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
         }
 
+        .btn-highlight {
+            background: linear-gradient(135deg, var(--highlight-color), var(--highlight-dark));
+            color: var(--dark-color);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-highlight:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+        }
+
         .btn-secondary {
             background: white;
             color: var(--dark-color);
@@ -215,11 +228,38 @@
             line-height: 1.2;
         }
 
+        .hero-title .highlight {
+            background: linear-gradient(135deg, var(--highlight-color), var(--highlight-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-title .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--highlight-color);
+            border-radius: 2px;
+        }
+
         .hero-subtitle {
             font-size: 1.25rem;
             margin-bottom: 2.5rem;
             opacity: 0.9;
             font-weight: 400;
+        }
+
+        .hero-subtitle .highlight {
+            background-color: var(--highlight-color);
+            color: var(--dark-color);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
         }
 
         .hero-actions {
@@ -263,11 +303,37 @@
             color: var(--dark-color);
         }
 
+        .section-title .highlight {
+            background: linear-gradient(135deg, var(--highlight-color), var(--highlight-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+
+        .section-title .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--highlight-color);
+            border-radius: 2px;
+        }
+
         .section-subtitle {
             font-size: 1.25rem;
             color: var(--gray-light);
             max-width: 600px;
             margin: 0 auto;
+        }
+
+        .section-subtitle .highlight {
+            background-color: var(--highlight-color);
+            color: var(--dark-color);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
         }
 
         .features-grid {
@@ -287,6 +353,21 @@
             overflow: hidden;
         }
 
+        .feature-card.highlight {
+            border: 2px solid var(--highlight-color);
+            box-shadow: 0 8px 24px rgba(255, 215, 0, 0.15);
+        }
+
+        .feature-card.highlight::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--highlight-color), var(--highlight-dark));
+        }
+
         .feature-card::before {
             content: '';
             position: absolute;
@@ -302,10 +383,18 @@
             box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
         }
 
+        .feature-card.highlight:hover {
+            box-shadow: 0 16px 40px rgba(255, 215, 0, 0.2);
+        }
+
         .feature-icon {
             font-size: 3rem;
             margin-bottom: 1.5rem;
             color: var(--primary-color);
+        }
+
+        .feature-card.highlight .feature-icon {
+            color: var(--highlight-dark);
         }
 
         .feature-title {
@@ -341,6 +430,22 @@
             overflow: hidden;
         }
 
+        .tool-card.highlight {
+            border: 2px solid var(--highlight-color);
+            box-shadow: 0 8px 24px rgba(255, 215, 0, 0.15);
+        }
+
+        .tool-card.highlight::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--highlight-color);
+            transform: scaleX(1);
+        }
+
         .tool-card::before {
             content: '';
             position: absolute;
@@ -363,10 +468,18 @@
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
         }
 
+        .tool-card.highlight:hover {
+            box-shadow: 0 12px 30px rgba(255, 215, 0, 0.2);
+        }
+
         .tool-icon {
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
             color: var(--primary-color);
+        }
+
+        .tool-card.highlight .tool-icon {
+            color: var(--highlight-dark);
         }
 
         .tool-title {
@@ -391,6 +504,10 @@
             transition: var(--transition);
         }
 
+        .tool-card.highlight .tool-link {
+            color: var(--highlight-dark);
+        }
+
         .tool-link:hover {
             gap: 0.75rem;
         }
@@ -412,11 +529,21 @@
             padding: 2rem 1rem;
         }
 
+        .stat-item.highlight {
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
         .stat-number {
             font-size: 3rem;
             font-weight: 800;
             margin-bottom: 0.5rem;
             display: block;
+        }
+
+        .stat-item.highlight .stat-number {
+            color: var(--highlight-color);
         }
 
         .stat-label {
@@ -437,6 +564,11 @@
             padding: 2rem;
             box-shadow: var(--shadow);
             position: relative;
+        }
+
+        .testimonial-card.highlight {
+            border: 2px solid var(--highlight-color);
+            box-shadow: 0 8px 24px rgba(255, 215, 0, 0.15);
         }
 
         .testimonial-text {
@@ -463,6 +595,10 @@
             font-weight: 700;
         }
 
+        .testimonial-card.highlight .author-avatar {
+            background: var(--highlight-dark);
+        }
+
         .author-info h4 {
             font-weight: 700;
             margin-bottom: 0.25rem;
@@ -485,6 +621,13 @@
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
+        }
+
+        .cta-title .highlight {
+            background: linear-gradient(135deg, var(--highlight-color), var(--highlight-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
         }
 
         .cta-subtitle {
@@ -525,6 +668,10 @@
             width: 40px;
             height: 2px;
             background: var(--primary-color);
+        }
+
+        .footer-column.highlight h3::after {
+            background: var(--highlight-color);
         }
 
         .footer-links {
@@ -575,6 +722,21 @@
             padding-top: 2rem;
             text-align: center;
             color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Highlight Badge */
+        .highlight-badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: var(--highlight-color);
+            color: var(--dark-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+            z-index: 10;
         }
 
         /* Animations */
@@ -697,15 +859,15 @@
                 
                 <nav class="nav" id="mainNav">
                     <a href="#" class="nav-link active">Home</a>
-                    <a href="#" class="nav-link">Tools</a>
-                    <a href="#" class="nav-link">Features</a>
-                    <a href="#" class="nav-link">Pricing</a>
-                    <a href="#" class="nav-link">Blog</a>
+                    <a href="#tools">Tools</a>
+                    <a href="#features">Features</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#contact">Contact</a>
                 </nav>
                 
                 <div class="header-actions">
                     <a href="#" class="btn btn-secondary">Sign In</a>
-                    <a href="#" class="btn btn-primary">Get Started</a>
+                    <a href="tool/allfileconverter.html" class="btn btn-highlight">Get Started Free</a>
                     <button class="mobile-menu-btn" id="mobileMenuBtn">
                         <i class="fas fa-bars"></i>
                     </button>
@@ -718,16 +880,16 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title fade-in-up">All Your Essential Tools in One Place</h1>
-                <p class="hero-subtitle fade-in-up delay-1">Powerful, easy-to-use online tools for developers, designers, and content creators. Convert files, generate code, optimize images, and more.</p>
+                <h1 class="hero-title fade-in-up">All Your <span class="highlight">Essential Tools</span> in One Place</h1>
+                <p class="hero-subtitle fade-in-up delay-1">Powerful, easy-to-use online tools for developers, designers, and content creators. <span class="highlight">Convert files, generate code, optimize images, and more.</span></p>
                 <div class="hero-actions fade-in-up delay-2">
-                    <a href="#" class="btn btn-primary hero-btn">
+                    <a href="tool/allfileconverter.html" class="btn btn-highlight hero-btn">
                         <i class="fas fa-rocket"></i>
-                        Explore Tools
+                        Try File Converter
                     </a>
-                    <a href="#" class="btn hero-btn-secondary hero-btn">
+                    <a href="#tools" class="btn hero-btn-secondary hero-btn">
                         <i class="fas fa-play-circle"></i>
-                        Watch Demo
+                        Explore All Tools
                     </a>
                 </div>
             </div>
@@ -735,11 +897,11 @@
     </section>
 
     <!-- Features Section -->
-    <section class="section">
+    <section class="section" id="features">
         <div class="container">
             <div class="section-header fade-in-up">
-                <h2 class="section-title">Why Choose ToolMaster Pro?</h2>
-                <p class="section-subtitle">We provide the best online tools with powerful features to boost your productivity</p>
+                <h2 class="section-title">Why Choose <span class="highlight">ToolMaster Pro</span>?</h2>
+                <p class="section-subtitle">We provide the best online tools with powerful features to <span class="highlight">boost your productivity</span></p>
             </div>
             
             <div class="features-grid">
@@ -749,7 +911,8 @@
                     <p class="feature-description">Our tools process your files and data in seconds, saving you valuable time and effort.</p>
                 </div>
                 
-                <div class="feature-card fade-in-up delay-2">
+                <div class="feature-card highlight fade-in-up delay-2">
+                    <div class="highlight-badge">POPULAR</div>
                     <i class="fas fa-shield-alt feature-icon"></i>
                     <h3 class="feature-title">Secure & Private</h3>
                     <p class="feature-description">Your files and data are processed securely and never stored on our servers.</p>
@@ -765,19 +928,20 @@
     </section>
 
     <!-- Tools Section -->
-    <section class="section tools-section">
+    <section class="section tools-section" id="tools">
         <div class="container">
             <div class="section-header fade-in-up">
-                <h2 class="section-title">Popular Tools</h2>
-                <p class="section-subtitle">Discover our most used and loved tools by thousands of users worldwide</p>
+                <h2 class="section-title">Our <span class="highlight">Popular Tools</span></h2>
+                <p class="section-subtitle">Discover our most used and loved tools by <span class="highlight">thousands of users worldwide</span></p>
             </div>
             
             <div class="tools-grid">
-                <div class="tool-card fade-in-up delay-1">
-                    <i class="fas fa-file-pdf tool-icon"></i>
-                    <h3 class="tool-title">PDF Converter</h3>
-                    <p class="tool-description">Convert PDFs to Word, Excel, images and vice versa with perfect formatting.</p>
-                    <a href="#" class="tool-link">
+                <div class="tool-card highlight fade-in-up delay-1">
+                    <div class="highlight-badge">FEATURED</div>
+                    <i class="fas fa-exchange-alt tool-icon"></i>
+                    <h3 class="tool-title">All File Converter</h3>
+                    <p class="tool-description">Convert documents, images, audio, video, and archives between multiple formats.</p>
+                    <a href="tool/allfileconverter.html" class="tool-link">
                         Try Now <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -829,8 +993,8 @@
             </div>
             
             <div style="text-align: center; margin-top: 3rem;">
-                <a href="#" class="btn btn-primary">
-                    View All Tools <i class="fas fa-arrow-right"></i>
+                <a href="tool/allfileconverter.html" class="btn btn-highlight">
+                    Try File Converter <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </div>
@@ -845,7 +1009,7 @@
                     <span class="stat-label">Powerful Tools</span>
                 </div>
                 
-                <div class="stat-item fade-in-up delay-1">
+                <div class="stat-item highlight fade-in-up delay-1">
                     <span class="stat-number">100K+</span>
                     <span class="stat-label">Happy Users</span>
                 </div>
@@ -867,13 +1031,13 @@
     <section class="section">
         <div class="container">
             <div class="section-header fade-in-up">
-                <h2 class="section-title">What Our Users Say</h2>
-                <p class="section-subtitle">Don't just take our word for it - hear from some of our satisfied users</p>
+                <h2 class="section-title">What Our <span class="highlight">Users Say</span></h2>
+                <p class="section-subtitle">Don't just take our word for it - hear from some of our <span class="highlight">satisfied users</span></p>
             </div>
             
             <div class="testimonials-grid">
                 <div class="testimonial-card fade-in-up delay-1">
-                    <p class="testimonial-text">"ToolMaster Pro has completely transformed my workflow. The PDF to Word converter is incredibly accurate and saves me hours each week."</p>
+                    <p class="testimonial-text">"ToolMaster Pro has completely transformed my workflow. The file converter is incredibly accurate and saves me hours each week."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">JD</div>
                         <div class="author-info">
@@ -883,7 +1047,7 @@
                     </div>
                 </div>
                 
-                <div class="testimonial-card fade-in-up delay-2">
+                <div class="testimonial-card highlight fade-in-up delay-2">
                     <p class="testimonial-text">"As a developer, I use the code generators daily. They're accurate, fast, and have improved my productivity significantly."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">SR</div>
@@ -895,7 +1059,7 @@
                 </div>
                 
                 <div class="testimonial-card fade-in-up delay-3">
-                    <p class="testimonial-text">"The image optimization tools are fantastic! I've reduced my website's load time by 40% thanks to these tools."</p>
+                    <p class="testimonial-text">"The file conversion tools are fantastic! I've reduced my document processing time by 40% thanks to these tools."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">MT</div>
                         <div class="author-info">
@@ -911,70 +1075,67 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <h2 class="cta-title fade-in-up">Ready to Boost Your Productivity?</h2>
+            <h2 class="cta-title fade-in-up">Ready to <span class="highlight">Boost Your Productivity</span>?</h2>
             <p class="cta-subtitle fade-in-up delay-1">Join thousands of users who are already saving time with our powerful online tools</p>
             <div class="fade-in-up delay-2">
-                <a href="#" class="btn btn-primary hero-btn">
+                <a href="tool/allfileconverter.html" class="btn btn-highlight hero-btn">
                     <i class="fas fa-rocket"></i>
-                    Get Started Free
+                    Try File Converter Now
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" id="contact">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-column">
-                    <h3>ToolMaster Pro</h3>
-                    <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 1.5rem;">All-in-one platform with powerful online tools for developers, designers, and content creators.</p>
+                
+                <!-- Left Column -->
+                <div class="footer-column highlight">
+                    <h3>
+                        <a href="tool/allfileconverter.html" style="color: white; text-decoration: none;">
+                            ToolMaster Pro
+                        </a>
+                    </h3>
+                    <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 1.5rem;">
+                        All-in-one platform with powerful online tools for developers, designers, and content creators.
+                    </p>
                     <div class="social-links">
-                        <a href="#" class="social-link">
+                        <a href="tool/allfileconverter.html" class="social-link">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="social-link">
+                        <a href="tool/allfileconverter.html" class="social-link">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="social-link">
+                        <a href="tool/allfileconverter.html" class="social-link">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="social-link">
+                        <a href="tool/allfileconverter.html" class="social-link">
                             <i class="fab fa-github"></i>
                         </a>
                     </div>
                 </div>
-                
+
+                <!-- Quick Links Column -->
                 <div class="footer-column">
-                    <h3>Tools</h3>
+                    <h4>Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="#">PDF Tools</a></li>
-                        <li><a href="#">Image Tools</a></li>
-                        <li><a href="#">Video Tools</a></li>
-                        <li><a href="#">Code Tools</a></li>
-                        <li><a href="#">Excel Tools</a></li>
+                        <li><a href="tool/allfileconverter.html">Explore Tools</a></li>
+                        <li><a href="tool/allfileconverter.html">About Us</a></li>
+                        <li><a href="tool/allfileconverter.html">Contact</a></li>
+                        <li><a href="tool/allfileconverter.html">Privacy Policy</a></li>
                     </ul>
                 </div>
-                
+
+                <!-- Resources Column -->
                 <div class="footer-column">
-                    <h3>Company</h3>
+                    <h4>Resources</h4>
                     <ul class="footer-links">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Support</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="tool/allfileconverter.html">Blog</a></li>
+                        <li><a href="tool/allfileconverter.html">Help Center</a></li>
+                        <li><a href="tool/allfileconverter.html">API Docs</a></li>
+                        <li><a href="tool/allfileconverter.html">Community</a></li>
                     </ul>
                 </div>
             </div>
